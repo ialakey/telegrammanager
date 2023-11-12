@@ -9,6 +9,7 @@ Hello! Welcome to the [TelegramManager](https://github.com/ialakey/telegrammanag
 - [Entities](#entities)
 - [Demonstration](#demonstration)
 - [Authorship](#authorship)
+- [Check it](#checkit)
 
 ## Installation
 <a name="installation"></a>
@@ -101,3 +102,7 @@ Hello! Welcome to the [TelegramManager](https://github.com/ialakey/telegrammanag
 ## Authorship
 <a name="authorship"></a>
 The project was developed by [I_Alakey](https://t.me/i_alakey).
+
+## Check it
+<a name="checkit"></a>
+[Telegram](https://t.me/kino_narezo4ka).
