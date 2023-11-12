@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://chatEdit.caption"
+        focusComponent="form"
+        messagesPack="com.alakey.telegrambot.web.screens.chat">
+    <data>
+        <instance id="chatDc"
+                  class="com.alakey.telegrambot.entity.Chat">
+            <view extends="full-chat">
+                <property name="files" view="_base"/>
+            </view>
+            <loader/>
+        </instance>
+        <instance id="filesDc"
+                  class="com.haulmont.cuba.core.entity.FileDescriptor" view="_base">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="chatDc">
+            <column width="350px">
+                <textField id="chatIdField" property="chatId"/>
+                <textField id="botTokenField" property="botToken"/>
+                <button id="getNameTelegramChannelBtn" caption="Синхронизировать с телеграммом" icon="font-icon:TELEGRAM"/>
+                <textField id="nameField" property="name" editable="false"/>
+                <textField id="descriptionField" property="description" editable="false"/>
+                <textField id="chatMembersCountField" property="chatMembersCount" editable="false"/>
+                <label id="labelAttachments" value="Аватар"
+                       stylename="caption-label-tracker"/>
+                <vbox id="filesVb" width="100%" spacing="false" margin="true"
+                      stylename="dropzone-container">
+                    <hbox id="htmlParentHb" width="100%" visible="false"/>
+                    <multiUpload id="fileUploader" caption="Прикрепить" icon="font-icon:PAPERCLIP"
+                                 dropZone="filesVb" stylename="tracker-uploader" height="30px"/>
+                </vbox>
+                <button id="changeAvatarBtn" caption="Изменить аватар"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

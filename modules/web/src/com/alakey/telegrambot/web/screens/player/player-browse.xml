@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://playerBrowse.caption"
+        focusComponent="playersTable"
+        messagesPack="com.alakey.telegrambot.web.screens.player">
+    <data readOnly="true">
+        <collection id="playersDc"
+                    class="com.alakey.telegrambot.entity.Player">
+            <view extends="_local"/>
+            <loader id="playersDl">
+                <query>
+                    <![CDATA[select e from telegrambot_Player e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="playersTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="playersTable"
+                dataLoader="playersDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="playersTable"
+                    width="100%"
+                    dataContainer="playersDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="movieId"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <vbox width="600px">
+                <hbox caption="Ручной ввод" spacing="true">
+                    <button id="createBtn" action="playersTable.create"/>
+                    <button id="editBtn" action="playersTable.edit"/>
+                    <button id="removeBtn" action="playersTable.remove"/>
+                </hbox>
+                <hbox height="7px"/>
+                    <hbox caption="Специальные кнопки" spacing="true">
+                        <button id="clearBtn" icon="icons/trash.png" caption="Очистить"/>
+                    </hbox>
+                </vbox>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

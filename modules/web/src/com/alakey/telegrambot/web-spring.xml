@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:gui="http://schemas.haulmont.com/cuba/spring/cuba-gui.xsd">
+
+    <!-- Annotation-based beans -->
+    <context:component-scan base-package="com.alakey.telegrambot"/>
+    
+    <gui:screens base-packages="com.alakey.telegrambot.web"/>
+    <bean id="telegrambot_proxyCreator" class="com.haulmont.cuba.web.sys.remoting.WebRemoteProxyBeanCreator">
+        <property name="serverSelector" ref="cuba_ServerSelector"/>
+        <property name="remoteServices">
+            <map>
+                <entry key="telegrambot_TelegramBotService" value="com.alakey.telegrambot.service.TelegramBotService"/>
+                <entry key="telegrambot_TheMovieDbService" value="com.alakey.telegrambot.service.TheMovieDbService"/>
+                <entry key="telegrambot_JsonParserService" value="com.alakey.telegrambot.service.JsonParserService"/>
+                <entry key="telegrambot_TelegramChannelService"
+                       value="com.alakey.telegrambot.service.TelegramChannelService"/>
+                <entry key="telegrambot_PlayerParserService"
+                       value="com.alakey.telegrambot.service.PlayerParserService"/>
+                <entry key="telegrambot_PlayerService" value="com.alakey.telegrambot.service.PlayerService"/>
+                <entry key="telegrambot_FileManagerService" value="com.alakey.telegrambot.service.FileManagerService"/>
+                <entry key="telegrambot_TelegramUserService"
+                       value="com.alakey.telegrambot.service.TelegramUserService"/>
+                <entry key="telegrambot_TelegramSchedulerService"
+                       value="com.alakey.telegrambot.service.TelegramSchedulerService"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://chatBrowse.caption"
+        focusComponent="chatsTable"
+        messagesPack="com.alakey.telegrambot.web.screens.chat">
+    <data readOnly="true">
+        <collection id="chatsDc"
+                    class="com.alakey.telegrambot.entity.Chat">
+            <view extends="_local"/>
+            <loader id="chatsDl">
+                <query>
+                    <![CDATA[select e from telegrambot_Chat e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="chatsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="chatsTable"
+                dataLoader="chatsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="chatsTable"
+                    width="100%"
+                    dataContainer="chatsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="chatId"/>
+                <column id="botToken"/>
+                <column id="name"/>
+                <column id="description"/>
+                <column id="chatMembersCount"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="chatsTable.create"/>
+                <button id="editBtn" action="chatsTable.edit"/>
+                <button id="removeBtn" action="chatsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

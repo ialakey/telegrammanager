@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="telegrambot" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.alakey.telegrambot.entity.Note</class>
+        <class>com.alakey.telegrambot.entity.Chat</class>
+        <class>com.alakey.telegrambot.entity.Player</class>
+        <class>com.alakey.telegrambot.entity.Category</class>
+        <class>com.alakey.telegrambot.entity.TelegramUser</class>
+    </persistence-unit>
+</persistence>

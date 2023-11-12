@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://noteEdit.caption"
+        focusComponent="form"
+        messagesPack="com.alakey.telegrambot.web.screens.note">
+    <data>
+        <instance id="noteDc"
+                  class="com.alakey.telegrambot.entity.Note">
+            <view extends="_local">
+                <property name="chat" view="_minimal"/>
+                <property name="files" view="_base"/>
+                <property name="categories" view="_minimal"/>
+            </view>
+            <loader/>
+        </instance>
+        <instance id="chatDc"
+                  class="com.alakey.telegrambot.entity.Chat" view="full-chat">
+            <loader/>
+        </instance>
+        <instance id="filesDc"
+                  class="com.haulmont.cuba.core.entity.FileDescriptor" view="_base">
+            <loader/>
+        </instance>
+        <collection id="categoriesDc"
+                    class="com.alakey.telegrambot.entity.Category"
+                    view="_base">
+            <loader id="categoriesLoader">
+                <query>
+                    <![CDATA[select c from telegrambot_Category c]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="noteDc">
+            <column width="350px">
+                <lookupPickerField id="chatField" property="chat" width="600px"/>
+                <textField id="nameField" property="name" width="600px"/>
+                <richTextArea id="descriptionField" property="description" height="450px" width="600px"/>
+                <textField id="urlField" property="url" width="600px"/>
+                <textField id="ratingField" property="rating"/>
+                <textField id="runtimeField" property="runtime"/>
+                <textField id="movieIdField" property="movieId"/>
+                <tokenList id="linesList"
+                           caption="Жанры"
+                           dataContainer="noteDc"
+                           property="categories"
+                           width="320px">
+                    <lookup optionsContainer="categoriesDc"/>
+                </tokenList>
+                <dateField id="dateScheduledField" property="dateScheduled"/>
+                <label id="labelAttachments" value="Вложения"
+                       stylename="caption-label-tracker"/>
+                <vbox id="filesVb" width="100%" spacing="false" margin="true"
+                      stylename="dropzone-container">
+                    <hbox id="htmlParentHb" width="100%" visible="false"/>
+                    <multiUpload id="fileUploader" caption="Прикрепить" icon="font-icon:PAPERCLIP"
+                                 dropZone="filesVb" stylename="tracker-uploader" height="30px"/>
+                </vbox>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

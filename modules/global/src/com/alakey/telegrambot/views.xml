@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view name="full-note" class="com.alakey.telegrambot.entity.Note">
+        <property name="name"/>
+        <property name="description"/>
+        <property name="chat" view="full-chat"/>
+        <property name="dateScheduled"/>
+        <property name="datePublication"/>
+        <property name="status"/>
+        <property name="categories"/>
+        <property name="url"/>
+        <property name="files" view="_base"/>
+        <property name="rating"/>
+        <property name="runtime"/>
+        <property name="movieId"/>
+    </view>
+    <view name="full-chat" class="com.alakey.telegrambot.entity.Chat" extends="_base">
+        <property name="files" view="_base"/>
+    </view>
+</views>

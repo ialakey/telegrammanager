@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="telegrambot" caption="mainMsg://menu_config.telegramchannel" insertBefore="administration" icon="font-icon:TELEGRAM">
+        <item screen="telegrambot_Chat.browse" caption="mainMsg://menu_config.telegrambot_Chat.browse" icon="font-icon:WECHAT"/>
+        <menu id="content" caption="mainMsg://menu_config.content" icon="font-icon:EYE">
+            <item screen="telegrambot_Note.browse" caption="mainMsg://menu_config.telegrambot_Note.browse" icon="font-icon:STICKY_NOTE"/>
+            <item screen="telegrambot_Player.browse" caption="mainMsg://menu_config.telegrambot_Player.browse" icon="font-icon:PLAY"/>
+            <item screen="telegrambot_Category.browse" caption="mainMsg://menu_config.telegrambot_Category.browse" icon="font-icon:BOOK"/>
+        </menu>
+    </menu>
+    <menu id="statistic" caption="Статистика" insertBefore="administration" icon="font-icon:AREA_CHART">
+        <item screen="telegrambot_TelegramUser.browse" caption="mainMsg://menu_config.telegrambot_TelegramUser.browse" icon="font-icon:USER_CIRCLE"/>
+    </menu>
+</menu-config>

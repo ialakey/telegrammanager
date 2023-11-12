@@ -1,0 +1,31 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" fill="#E2E5E7" d="m128,0c-17.6,0 -32,14.4 -32,32l0,448c0,17.6 14.4,32 32,32l320,0c17.6,0 32,-14.4 32,-32l0,-352l-128,-128l-224,0z"/>
+  <path id="svg_2" fill="#B0B7BD" d="m384,128l96,0l-128,-128l0,96c0,17.6 14.4,32 32,32z"/>
+  <polygon id="svg_3" fill="#CAD1D8" points="480,224 384,128 480,128 "/>
+  <path id="svg_4" fill="#84BD5A" d="m416,416c0,8.8 -7.2,16 -16,16l-352,0c-8.8,0 -16,-7.2 -16,-16l0,-160c0,-8.8 7.2,-16 16,-16l352,0c8.8,0 16,7.2 16,16l0,160z"/>
+  <path id="svg_9" fill="#CAD1D8" d="m400,432l-304,0l0,16l304,0c8.8,0 16,-7.2 16,-16l0,-16c0,8.8 -7.2,16 -16,16z"/>
+  <g id="svg_10"/>
+  <g id="svg_11"/>
+  <g id="svg_12"/>
+  <g id="svg_13"/>
+  <g id="svg_14"/>
+  <g id="svg_15"/>
+  <g id="svg_16"/>
+  <g id="svg_17"/>
+  <g id="svg_18"/>
+  <g id="svg_19"/>
+  <g id="svg_20"/>
+  <g id="svg_21"/>
+  <g id="svg_22"/>
+  <g id="svg_23"/>
+  <g id="svg_24"/>
+  <text font-weight="bold" transform="matrix(6.668175936877568,0,0,4.81182776177168,-1009.4623206435178,-1123.0207348355268) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="26" id="svg_26" y="312.078762" x="176.603604" stroke-width="0" fill="#E2E5E7">?</text>
+ </g>
+</svg>

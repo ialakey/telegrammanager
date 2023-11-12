@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://noteBrowse.caption"
+        focusComponent="notesTable"
+        messagesPack="com.alakey.telegrambot.web.screens.note">
+    <data readOnly="true">
+        <collection id="notesDc"
+                    class="com.alakey.telegrambot.entity.Note">
+            <view extends="_local">
+                <property name="chat">
+                    <property name="name"/>
+                </property>
+            </view>
+            <loader id="notesDl">
+                <query>
+                    <![CDATA[select e from telegrambot_Note e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="notesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="notesTable"
+                dataLoader="notesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="notesTable"
+                    width="100%"
+                    dataContainer="notesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="movieId"/>
+                <column id="chat"/>
+                <column id="name"/>
+                <column id="dateScheduled"/>
+                <column id="datePublication"/>
+                <column id="status"/>
+                <column id="description" width="400px"/>
+                <column id="url"/>
+                <column id="rating"/>
+                <column id="runtime"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <vbox width="600px">
+                    <hbox caption="Ручной ввод" spacing="true">
+                        <button id="createBtn" action="notesTable.create"/>
+                        <button id="editBtn" action="notesTable.edit"/>
+                        <button id="removeBtn" action="notesTable.remove"/>
+                        <button id="clearAllBtn" caption="Очистить" icon="font-icon:TRASH"/>
+                    </hbox>
+                    <hbox height="6px"/>
+                    <hbox caption="Изменение" spacing="true">
+                        <button id="changeDateBtn" caption="Изменить даты" icon="font-icon:CALENDAR"/>
+                        <button id="changeStatusBtn" caption="Изменить статусы" icon="font-icon:EXCHANGE"/>
+                        <button id="changeChatBtn" caption="Изменить чат" icon="font-icon:WECHAT"/>
+                    </hbox>
+                    <hbox height="6px"/>
+                    <hbox caption="Управление" spacing="true">
+                        <button id="sendBtn" caption="msg://noteBrowse.sendBtn" icon="font-icon:SEND" description="Отправка в телеграм"/>
+                        <button id="uploadFilmBtn" caption="Загрузить фильмы" icon="font-icon:CLOUD_DOWNLOAD"/>
+                    </hbox>
+                </vbox>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

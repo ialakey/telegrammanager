@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://categoryBrowse.caption"
+        focusComponent="categoriesTable"
+        messagesPack="com.alakey.telegrambot.web.screens.category">
+    <data readOnly="true">
+        <collection id="categoriesDc"
+                    class="com.alakey.telegrambot.entity.Category">
+            <view extends="_local"/>
+            <loader id="categoriesDl">
+                <query>
+                    <![CDATA[select e from telegrambot_Category e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="categoriesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="categoriesTable"
+                dataLoader="categoriesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="categoriesTable"
+                    width="100%"
+                    dataContainer="categoriesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="movieDbId"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <vbox width="600px">
+                    <hbox caption="Ручной ввод" spacing="true">
+                        <button id="createBtn" action="categoriesTable.create"/>
+                        <button id="editBtn" action="categoriesTable.edit"/>
+                        <button id="removeBtn" action="categoriesTable.remove"/>
+                    </hbox>
+                    <hbox height="7px"/>
+                    <hbox caption="Специальные кнопки" spacing="true">
+                        <button id="fetchCategoryMovieDbBtn" caption="Получить жанры из MovieDb" icon="font-icon:SEARCH_PLUS"/>
+                        <button id="clearBtn" caption="Очистить" icon="font-icon:TRASH"/>
+                    </hbox>
+                </vbox>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
