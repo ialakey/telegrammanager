@@ -1,6 +1,6 @@
 # Project TelegramBot
 
-Hello! Welcome to the [TelegramBot](https://github.com/ialakey/telegrammanager) repository, where we are building an application for automating the publication of posts on Telegram.
+Hello! Welcome to the [TelegramManager](https://github.com/ialakey/telegrammanager) repository, where we are building an application for automating the publication of posts on Telegram.
 
 ## Table of Contents
 
@@ -91,7 +91,13 @@ Hello! Welcome to the [TelegramBot](https://github.com/ialakey/telegrammanager) 
 
 ## Demonstration
 <a name="demonstration"></a>
+<img width="955" alt="image" src="https://github.com/ialakey/telegrammanager/assets/56916175/f01bb5ad-f113-476b-b8c1-c2eb2500efa6">
+<img width="958" alt="image" src="https://github.com/ialakey/telegrammanager/assets/56916175/c3661a1d-ec84-4485-be3f-d5108c31cbbd">
+<img width="956" alt="image" src="https://github.com/ialakey/telegrammanager/assets/56916175/5dcd5875-8ab8-44f4-94b2-86e09972c1c6">
+<img width="955" alt="image" src="https://github.com/ialakey/telegrammanager/assets/56916175/d37a4d8d-becf-4879-aec7-874b8c8878b0">
+
+
 
 ## Authorship
 <a name="authorship"></a>
-The project was developed by [AlakeyCompany](https://t.me/i_alakey).
+The project was developed by [I_Alakey](https://t.me/i_alakey).
